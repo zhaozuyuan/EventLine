@@ -1,2 +1,2 @@
-include ':app', ':linebus'
+include ':app', ':event_line'
 rootProject.name='EventLine'
