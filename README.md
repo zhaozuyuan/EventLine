@@ -4,17 +4,17 @@
 
 ## 引入
 ```
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 ```
 dependencies {
-	        implementation 'com.github.zhaozuyuan:eventline:1.0.1-release'
-	}
+	implementation 'com.github.zhaozuyuan:eventline:1.0.2-release'
+}
 ```
 
 ## 概述
