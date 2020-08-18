@@ -159,9 +159,11 @@ public class RealReceiver<E> implements ICancellable, IRealReceiver {
 
     private void readStickyEvent() {
         SenderFactor factor = ELPool.getInstance().removeStickySenderFactor(getEventClass());
+        boolean finded = false;
         Class[] senders = mReceiverBuilder.getSenders();
         if (factor != null) {
             onReceive(factor);
+            finded = true;
         } else {
             Set<Class> keys = ELPool.getInstance().getStickyEventKeys();
             for (Class key : keys) {
@@ -177,10 +179,14 @@ public class RealReceiver<E> implements ICancellable, IRealReceiver {
                     List<Class> types = senderFactor.getEventTypes();
                     if (types != null && types.contains(getEventClass())) {
                         onReceive(senderFactor);
+                        finded = true;
                         break;
                     }
                 }
             }
+        }
+        if (!finded) {
+            ELPool.getInstance().saveStickyFactor(factor);
         }
     }
 
