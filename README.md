@@ -13,7 +13,7 @@ allprojects {
 ```
 ```
 dependencies {
-	implementation 'com.github.zhaozuyuan:eventline:1.0.2-release'
+	implementation 'com.github.zhaozuyuan:eventline:1.0.3-release'
 }
 ```
 
